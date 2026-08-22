@@ -1,0 +1,169 @@
+{
+  "app_name": "Device Manager Pro",
+  "personality": "4 Tactile / Playful LIGHT (adapted for Utility)",
+  "personality_one_liner": "A clean, friendly, and deeply tactile utility interface that makes device optimization feel safe, satisfying, and effortless.",
+  "color": {
+    "surface": "#F2F3F5",
+    "onSurface": "#1C1C1E",
+    "surfaceSecondary": "#FFFFFF",
+    "onSurfaceSecondary": "#1C1C1E",
+    "surfaceTertiary": "#E5E5EA",
+    "onSurfaceTertiary": "#3A3A3C",
+    "surfaceInverse": "#1C1C1E",
+    "onSurfaceInverse": "#FFFFFF",
+    "brand": "#38A845",
+    "brandPrimary": "#38A845",
+    "onBrandPrimary": "#FFFFFF",
+    "brandSecondary": "#E8F5E9",
+    "onBrandSecondary": "#38A845",
+    "brandTertiary": "#F0FDF4",
+    "onBrandTertiary": "#38A845",
+    "success": "#38A845",
+    "onSuccess": "#FFFFFF",
+    "warning": "#FF9800",
+    "onWarning": "#FFFFFF",
+    "error": "#F44336",
+    "onError": "#FFFFFF",
+    "info": "#2196F3",
+    "onInfo": "#FFFFFF",
+    "border": "#E5E5EA",
+    "borderStrong": "#D1D1D6",
+    "divider": "#E5E5EA"
+  },
+  "typography": {
+    "displayFontFamily": "Plus Jakarta Sans",
+    "textFontFamily": "Plus Jakarta Sans",
+    "scale": {
+      "sm": 12,
+      "base": 14,
+      "lg": 16,
+      "xl": 20,
+      "2xl": 24
+    }
+  },
+  "spacing": {
+    "rule": "Generous spacing inside cards for a friendly, uncrowded feel. Outer padding consistently lg (16pt). Maintain tight groupings for lists.",
+    "xs": 4,
+    "sm": 8,
+    "md": 12,
+    "lg": 16,
+    "xl": 24,
+    "2xl": 32,
+    "3xl": 48
+  },
+  "radius_tokens": {
+    "sm": 6,
+    "md": 12,
+    "lg": 20,
+    "pill": 999
+  },
+  "shadow_tier": "2",
+  "navigation": "bottom_tabs",
+  "icon_set": "Ionicons",
+  "glassmorphism": {
+    "enabled": "true",
+    "do's": [
+      "Use on the bottom tab bar when content scrolls beneath it",
+      "Use for sticky bottom CTA containers (e.g., 'Clean' button pinned to bottom)",
+      "Use for sticky headers when scrolling lists like large files or duplicate photos"
+    ],
+    "dont's": [
+      "Do not use glass on the white dashboard cards or tool grid items",
+      "Do not apply blur to the main circular gauges or progress bars"
+    ]
+  },
+  "platform_libraries": {
+    "glass": {
+      "ios": "expo-glass-effect",
+      "android": "expo-blur",
+      "low_end_android_fallback": "solid surfaceSecondary"
+    },
+    "image": "expo-image",
+    "blur": "expo-blur",
+    "bottom_sheet": "@gorhom/bottom-sheet",
+    "animation": "react-native-reanimated",
+    "gesture": "react-native-gesture-handler"
+  },
+  "screens": [
+    {
+      "name": "Home Dashboard",
+      "purpose": "Provides an immediate at-a-glance health score and quick entry points to core optimization tools.",
+      "states": {
+        "loading": "Skeleton gauge and blurred cards.",
+        "empty": "N/A",
+        "error": "Card showing 'Unable to scan device' with a primary 'Retry' pill button."
+      },
+      "layout": "Headerless or simple text header. Central visual: Large circular gauge (0-100 score) with a bold green ring, score in the center, and a subtle subtitle below. Directly beneath is a large 'Optimise' pill button. Below that, a 2x2 grid of white rounded cards (shadow tier 2) representing 'Clean Up', 'Viruses', etc. Each card contains a prominent colored circular icon chip (e.g., blue for storage, orange for risks). A 'Tools' row follows below the grid."
+    },
+    {
+      "name": "Junk / Clean Up",
+      "purpose": "Guides the user to free up storage by reviewing and clearing cache, duplicates, and large files.",
+      "states": {
+        "loading": "Scanning animation playing inside the storage card.",
+        "empty": "Illustration of a clean box with 'Your phone is spotless!'",
+        "error": "Error reading storage message with a 'Try Again' button."
+      },
+      "layout": "Large numeric header showing freeable space (e.g., '2.86 GB'). Below is a storage capacity card with a segmented progress bar. Content below is a list of 'Recommended cleanup' categories with individual 'Ignore/Clean' pill controls. A sticky, full-width glass-backed bottom container holds the primary 'Clean' CTA."
+    },
+    {
+      "name": "Optimise",
+      "purpose": "A checklist of quick-win performance improvements the user can execute sequentially or all at once.",
+      "states": {
+        "loading": "Spinner over list items.",
+        "empty": "All tasks completed state with a success badge.",
+        "error": "Failed to apply optimizations banner."
+      },
+      "layout": "Simple top gauge showing the current state ('Good - 98 pts'). A list of optimization rows. Each row features a brightly colored circle icon, a title/subtitle, and a light grey 'Go' pill button. 'Done' button pinned at the bottom."
+    },
+    {
+      "name": "Viruses & risks",
+      "purpose": "A dedicated security scan view showcasing device safety status and scan history.",
+      "states": {
+        "loading": "Pulsing concentric green rings around the security shield.",
+        "empty": "N/A",
+        "error": "Red 'Scan failed' state with retry action."
+      },
+      "layout": "A large green 'Secure' heading. A hero visual of a big green circular badge with a shield/lightning icon and concentric rings. Below are white cards detailing 'Scan records' and settings like 'Auto scan'. Sticky 'Scan Again' button at the bottom."
+    },
+    {
+      "name": "Tools",
+      "purpose": "A categorized grid of all secondary utilities and privacy features available in the app.",
+      "states": {
+        "loading": "Skeletons for grid items.",
+        "empty": "N/A",
+        "error": "N/A"
+      },
+      "layout": "A scrollable view sectioned by headers ('Cleanup & boost', 'Privacy', 'App security'). Under each header, tools are arranged in a 2-column or list layout. Each tool uses a white rounded card with a dedicated colored circular icon to maintain the tactile/playful aesthetic."
+    }
+  ],
+  "images": {
+    "onboarding_optimization": {
+      "url": "https://images.unsplash.com/photo-1760008486534-a5c359d0dd09?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1MTN8MHwxfHNlYXJjaHwxfHxwaG9uZSUyMG9wdGltaXphdGlvbiUyMDNkJTIwaWxsdXN0cmF0aW9ufGVufDB8fHx8MTc4Njg2NDAyOXww&ixlib=rb-4.1.0&q=85",
+      "alt": "3D playful cleaning tools indicating phone optimization"
+    },
+    "empty_state_clean": {
+      "url": "https://images.unsplash.com/photo-1759156990928-0a30e0fe1bba?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2Nzd8MHwxfHNlYXJjaHwyfHxlbXB0eSUyMGJveCUyMDNkJTIwaWxsdXN0cmF0aW9ufGVufDB8fHx8MTc4Njg2NDAyOXww&ixlib=rb-4.1.0&q=85",
+      "alt": "A clean, empty box illustration"
+    },
+    "security_shield": {
+      "url": "https://images.unsplash.com/photo-1638947604157-d259d219eeee?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjY2NjV8MHwxfHNlYXJjaHwxfHxzZWN1cml0eSUyMHNoaWVsZCUyMDNkJTIwaWNvbnxlbnwwfHx8fDE3ODY4NjQwMjl8MA&ixlib=rb-4.1.0&q=85",
+      "alt": "A 3D security shield representing virus protection"
+    }
+  },
+  "instructions_to_main_agent": [
+    "Follow the '4 Tactile / Playful' personality but restricted strictly to the defined Utility color palette (Avast Green, Light Grey background, White Cards). Do not introduce pastels outside of the defined tokens.",
+    "The primary action buttons must be fully rounded 'pill' buttons with generous height (min 56pt), conveying friendliness and approachability.",
+    "Cards should use surfaceSecondary (white) sitting on surface (light grey) with shadow_tier 2 to create a soft, lifted look.",
+    "Icons within cards should be placed inside circular colored chips (use info/warning/error/brand tokens as the background color for these chips, depending on the tool category).",
+    "Circular gauges are central to this design. Ensure they use smooth SVGs or Reanimated, with the 'brand' (Avast Green) driving the progress ring.",
+    "Implement sticky CTAs (e.g. 'Clean' or 'Optimise' buttons) at the bottom of scrolling screens using a glass-effect container (or solid white if on low-end Android) to ensure they are always reachable.",
+    "Never use generic blue/indigo as the default accent. Stick strictly to the defined brand hex (#38A845) and the supporting vibrant status colors."
+  ],
+  "haptics": {
+    "primary_button_press": "impactLight",
+    "gauge_fill_complete": "notificationSuccess",
+    "list_item_toggle": "selection",
+    "tool_card_tap": "impactLight",
+    "scan_complete": "notificationSuccess"
+  }
+}

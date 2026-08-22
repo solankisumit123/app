@@ -1,0 +1,68 @@
+{
+  "expo": {
+    "name": "Device Manager Pro",
+    "slug": "frontend",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/images/icon.png",
+    "scheme": "frontend",
+    "userInterfaceStyle": "light",
+    "newArchEnabled": true,
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.emergent.devicemanagerpro.y6d51v",
+      "infoPlist": {
+        "NSPhotoLibraryUsageDescription": "Find and remove duplicate photos on your device",
+        "NSPhotoLibraryAddUsageDescription": "Save compressed and restored photos to your library",
+        "NSFaceIDUsageDescription": "Unlock your private file vault securely"
+      }
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/images/adaptive-icon.png",
+        "backgroundColor": "#38A845"
+      },
+      "edgeToEdgeEnabled": true,
+      "package": "com.emergent.devicemanagerpro.y6d51v",
+      "permissions": [
+        "android.permission.READ_MEDIA_IMAGES",
+        "android.permission.READ_MEDIA_VIDEO",
+        "android.permission.USE_BIOMETRIC"
+      ]
+    },
+    "web": {
+      "bundler": "metro",
+      "output": "single",
+      "favicon": "./assets/images/favicon.png"
+    },
+    "plugins": [
+      "expo-router",
+      [
+        "expo-splash-screen",
+        {
+          "image": "./assets/images/splash-image.png",
+          "imageWidth": 200,
+          "resizeMode": "contain",
+          "backgroundColor": "#38A845"
+        }
+      ],
+      [
+        "expo-media-library",
+        {
+          "photosPermission": "Find and remove duplicate photos on your device",
+          "savePhotosPermission": "Save compressed and restored photos to your library",
+          "isAccessMediaLocationEnabled": true
+        }
+      ],
+      [
+        "expo-local-authentication",
+        {
+          "faceIDPermission": "Unlock your private file vault securely"
+        }
+      ]
+    ],
+    "experiments": {
+      "typedRoutes": true
+    }
+  }
+}
